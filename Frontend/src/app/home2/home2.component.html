@@ -11,27 +11,14 @@
       <div class="col-lg-6 col-md-8 mx-auto">
         <h1 style="font-style: italic;color: rgb(255, 255, 255);">Trends company</h1>
         <p class="lead " style="color: rgb(255, 255, 255);">Prêt à ameliorer ? Saisissez votre adresse e-mail pour vous abonner ou réactiver votre abonnement. 
-         
+          
         </p>
       </div>
     </div>
   </section>
-
-
-
-
-
  <form  [formGroup]="f" action="" (ngSubmit)="onsubmit()"  >
   
-  <label for="username" class="label" style="font-style: italic;color: rgb(255, 255, 255);">Username</label>
-
-   <i class="fas fa-user" style="color: white;" id="i1"></i>
   
-  <input type="email"  class="form-control txt_field" maxlength="50"   placeholder="Username" formControlName="username">
-
-  <div class="alert alert-danger" *ngIf="(username?.errors?.required || username?.errors?.minlength) && username.touched">
-    Entrer votre mail s'il vous plais
-    </div>
     
 
 
@@ -55,8 +42,8 @@
             <button value="Commencer "   class="btn btn-danger" [disabled]="f.invalid" >
               Commencer
                   </button>
-   
-       
+          
+          
 </form>
 </div>
 

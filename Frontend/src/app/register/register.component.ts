@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
   username:string
   email:string
   f:FormGroup=new FormGroup({
-    username:new FormControl(''),
     email:new FormControl(''),
     password:new FormControl(''),
 
@@ -57,10 +56,8 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit(): void {
-  this.username=sessionStorage.getItem('username');
   this.email=sessionStorage.getItem('email');
   this.f=this.fb.group({
-    username:[this.username],
     email:[this.email],
     password:['',[Validators.required,Validators.minLength(6)]]
   })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthentificationService } from '../Services/authentification.service';
 import { TokenStorageService } from '../Services/token-storage.service';
 
@@ -9,22 +10,26 @@ import { TokenStorageService } from '../Services/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+f:FormGroup
   form: any = {};
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthentificationService, private tokenStorage: TokenStorageService) { }
-
+  constructor(private authService: AuthentificationService, private tokenStorage: TokenStorageService,private fb:FormBuilder) { }
+  get email(){
+    return this.f.controls.email;
+  }
+  get password(){
+    return this.f.controls.password;
+  }
   ngOnInit(): void {
+    this.f=this.fb.group({
+      email:[''],
+      password:['']
+    })
 
-for (let i =0;i < document.getElementsByTagName("input").length; i++){
- if( document.getElementsByTagName("input")[i].onclick){
-  document.getElementsByTagName("input")[i].style.background="red"
- }
-}
 
 
     if (this.tokenStorage.getToken()) {

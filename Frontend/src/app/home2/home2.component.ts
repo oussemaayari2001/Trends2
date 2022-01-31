@@ -22,10 +22,7 @@ export class Home2Component implements OnInit {
   get mail(){
     return this.f.controls.email
   }
-  get username(){
-    
-    return this.f.controls.username
-  }
+  
  
     
   
@@ -33,7 +30,6 @@ export class Home2Component implements OnInit {
   
   ngOnInit(): void {
     this.f=this.fb.group({
-      username:['',],
       email:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]]
     })
     
@@ -60,7 +56,7 @@ export class Home2Component implements OnInit {
    
   );
  
-  sessionStorage.setItem('username',this.f.controls.username.value)
+ 
   sessionStorage.setItem('email',this.f.controls.email.value)
 setTimeout(() => {
   if(this.isSuccessful)this.router.navigate(['/register/'])

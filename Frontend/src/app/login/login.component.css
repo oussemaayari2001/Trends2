@@ -163,7 +163,7 @@ input.ng-invalid { border-left: 2px solid red; }
  #i1{
    font-size: 14px;
   position: absolute;
-  transform: translate(-590%,340%);
+  transform: translate(-300%,360%);
   z-index: +10000;
 }
 #i2{

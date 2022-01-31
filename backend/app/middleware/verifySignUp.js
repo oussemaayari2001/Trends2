@@ -3,18 +3,18 @@ const ROLES = db.ROLES;
 const User = db.user;
 const Temp=db.temp;
 checkDuplicateUsernameOrEmail = (req, res, next) => {
-  // Username
-  User.findOne({
-    where: {
-      username: req.body.username
-    }
-  }).then(user => {
-    if (user) {
-      res.status(400).send({
-        message: "Failed! Username is already in use!"
-      });
-      return;
-    }
+  //Username
+  // User.findOne({
+    // where: {
+    //   username: req.body.username
+    // }})
+    // .then(user => {
+    // if (user) {
+    //   res.status(400).send({
+    //     message: "Failed! Username is already in use!"
+    //   });
+    //   return;
+    // }
 
     // Email
     User.findOne({
@@ -31,23 +31,23 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
 
       next();
     });
-  });
-};
+  };
+
 
 
 checkDuplicate = (req, res, next) => {
   // Username
-  Temp.findOne({
-    where: {
-      username: req.body.username 
-    }
-  }).then(user => {
-    if (user) {
-      res.status(400).send({
-        message: "Failed! Username is already in use!"
-      });
-      return;
-    }
+  // Temp.findOne({
+  //   where: {
+  //     username: req.body.username 
+  //   }
+  // }).then(user => {
+  //   if (user) {
+  //     res.status(400).send({
+  //       message: "Failed! Username is already in use!"
+  //     });
+  //     return;
+  //   }
 
     // Email
     Temp.findOne({
@@ -64,8 +64,8 @@ checkDuplicate = (req, res, next) => {
 
       next();
     });
-  });
-};
+  };
+
 
 
 

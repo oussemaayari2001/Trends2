@@ -3,14 +3,15 @@ const config = require("../config/auth.config");
 const User = db.user;
 const Role = db.role;
 const Temp =db.temp;
-
 const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 exports.sign=(req, res) =>{
+  //Top
   Temp.create({
-    username: req.body.username,
+    // username: req.body.username,
+    //
     email: req.body.email
     // password: bcrypt.hashSync(req.body.password, 8)
   })
@@ -57,7 +58,7 @@ exports.signup = (req, res) => {
   // Save User to Database 1
   User.create({
     //1
-    username: req.body.username,//
+    // username: req.body.username,//
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8)
   })
@@ -90,7 +91,7 @@ exports.signin = (req, res) => {
   User.findOne({
     where: {
       //first step
-      username: req.body.username
+      email: req.body.email 
     }
   })
     .then(user => {
@@ -122,7 +123,7 @@ exports.signin = (req, res) => {
         res.status(200).send({
           id: user.id,
           //2
-          username: user.username,
+          // username: user.username,
           email: user.email,
           roles: authorities,
           accessToken: token

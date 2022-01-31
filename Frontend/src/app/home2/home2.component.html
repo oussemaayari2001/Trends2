@@ -1,0 +1,152 @@
+<!-- <div class="container">
+    <header class="jumbotron">
+      <p>{{ content }}</p>
+    </header>
+  </div> -->
+  <app-background>
+  </app-background>
+<div id="id1">
+  <section class="  text-center container"  >
+    <div class="row py-lg-5" >
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 style="font-style: italic;color: rgb(255, 255, 255);">Trends company</h1>
+        <p class="lead " style="color: rgb(255, 255, 255);">Prêt à ameliorer ? Saisissez votre adresse e-mail pour vous abonner ou réactiver votre abonnement. 
+         
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+ <form  [formGroup]="f" action="" (ngSubmit)="onsubmit()"  >
+  
+  <label for="username" style="font-style: italic;color: rgb(255, 255, 255);">Username</label>
+
+   <i class="fas fa-user" style="color: white;" id="i1"></i>
+  
+  <input type="email"  class="form-control txt_field" maxlength="50"   placeholder="Username" formControlName="username">
+
+  <div class="alert alert-danger" *ngIf="(username?.errors?.required || username?.errors?.minlength) && username.touched">
+    Entrer votre mail s'il vous plais
+    </div>
+    
+
+
+
+
+
+      <label for="staticEmail2" style="font-style: italic;color: rgb(255, 255, 255);">Email</label>
+      <i class="far fa-envelope" style="color: white;" id="i2"></i>
+      <input type="email"  class="form-control txt_field" maxlength="50"   placeholder="Adresse e-mail" formControlName="email">
+
+      <div class="alert alert-danger" *ngIf="mail?.errors?.required && mail.touched">
+        Entrer votre mail s'il vous plais
+        </div>
+        <div class="alert alert-danger" *ngIf="mail?.errors?.pattern && mail.touched">
+            le e-mail doit avoir @
+            </div> 
+            <div class="alert alert-warning" *ngIf="isSignUpFailed">
+              Signup failed! <br />{{ errorMessage }}
+            </div>
+<br>
+            <button value="Commencer "   class="btn btn-info" [disabled]="f.invalid" >
+              Commencer
+                  </button>
+   
+       
+</form>
+</div>
+
+ <!-- <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onsubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            minlength="3"
+            maxlength="20"
+            #username="ngModel"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Username is required</div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 3 characters
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must be at most 20 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            email
+            #email="ngModel"
+          />
+          <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+            <div *ngIf="email.errors.required">Email is required</div>
+            <div *ngIf="email.errors.email">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label> 
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            [(ngModel)]="form.password"
+            minlength="6"
+            #password="ngModel"
+            hidden
+          />
+          <input type="submit" value="Commencer "  class=" btn-dark" [disabled]="form.invalid" >
+          </div>
+          </form>
+          -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+
+
+ 

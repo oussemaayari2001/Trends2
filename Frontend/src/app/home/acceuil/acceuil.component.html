@@ -1,0 +1,35 @@
+<section class="py-5 text-center container" >
+    <div class="row py-lg-5" >
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Trends company</h1>
+        <p class="lead text-muted">Prêt à ameliorer ? Saisissez votre adresse e-mail pour vous abonner ou réactiver votre abonnement. 
+         
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+ <form  [formGroup]="f">
+    
+      <label for="staticEmail2">Email</label>
+      <input type="email"  class="form-control" maxlength="50"   placeholder="Foulen@gmail.com" formControlName="mail">
+
+      <div class="alert alert-danger" *ngIf="mail?.errors?.required && mail.touched">
+        Entrer votre mail s'il vous plais
+        </div>
+        <div class="alert alert-danger" *ngIf="mail?.errors?.pattern && mail.touched">
+            le e-mail doit avoir @
+            </div> 
+
+        <input type="submit"  class="btn btn-success" [disabled]="f.invalid" [routerLink]="['/signup/password/',mail.value]">
+   
+       
+</form>
+
+
+  
+    

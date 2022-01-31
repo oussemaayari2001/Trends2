@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+i{
+    height: 300px;
+    width: 200px;
+}
+ul {
+    list-style: none;
+  }
+  
+  ul li:before {
+    content: '✓';
+    color: red;
+  }
+   .c1{
+     position: absolute;
+     top: 20%;
+     left: 30%;
+     /* height: 500px; */
+     width: 500px;
+  }

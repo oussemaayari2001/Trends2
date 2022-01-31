@@ -1,0 +1,38 @@
+.c1{
+    position: absolute;
+    top: 10px;
+  
+    left: 1400px;
+    color: rgb(255, 255, 255)  ;
+    border-radius: 50px;
+    background-color: rgb(2, 69, 253);
+  }
+  img{
+    height: 50px;
+    position: absolute;
+    top: 0px;
+  }
+  .c2{
+      position: absolute;
+      top: 7.4px;
+      border-radius: 50px;
+  font-size: 20px;
+      left: 1280px;
+      color: rgb(0, 0, 0);
+  
+    }
+    .c6{
+      position: relative;
+      top: 3px;
+      opacity: 0.7;
+      font-size: 17px;
+    }
+    #app{
+      height: 60px;
+      background-color: white;
+      /* background-image:radial-gradient(rgb(0, 0, 0),rgb(22, 4, 218),rgb(28, 25, 201),rgb(4, 20, 255)); */
+     
+    }
+
+    /* *{background: linear-gradient(120deg,#121213, #b3afb4);} */
+  

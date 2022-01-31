@@ -1,0 +1,45 @@
+#id1{
+    position: absolute;
+     top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -55%);
+    width: 50%;
+}
+#i1{
+    position: absolute;
+    transform: translate(-200%,380%);
+    z-index: +200;
+  }
+#i2{
+    position: absolute;
+    transform: translate(10%,400%);
+    z-index: +200;
+  }
+  form .txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+  }
+  ::placeholder{
+      color: rgb(255, 255, 255);
+  }
+input{
+    width: 90%;
+    /* padding: 0 5px; */
+    position: relative;
+    left: 60px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: transparent; 
+     outline: none;
+     color: white;
+}
+
+
+/* input.ng-valid { border-left: 2px solid green; }
+input.ng-invalid { border-left: 2px solid red; } */
+button{
+    position: relative;
+    left: 300px;
+}

@@ -1,0 +1,57 @@
+
+
+
+
+img{
+    height: 50px;
+    width: 50px;
+}
+.container{
+    font-size: 20px;
+}
+#id1{
+    position: absolute;
+     top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -60%);
+    width: 50%;
+}
+
+/* #id2{
+    position: absolute;
+     top: 50%;
+    left: 50%; 
+    transform: translate(-50%, 70%);
+    width: 50%;
+} */
+
+
+input.ng-valid { border-left: 2px solid green; }
+input.ng-invalid { border-left: 2px solid red; }
+button{
+    position: relative;
+    left: 300px;
+}
+#i1{
+    position: absolute;
+    transform: translate(10%,90%);
+  }
+ .eye{
+  position: absolute;
+  transform: translate(1400%,-140%);
+
+}
+#hide1{
+  position: absolute;
+  transform: translate(4010%,-140%);
+  display: none;
+  
+}
+  #hide2{
+    position: absolute;
+    transform: translate(3590%,-140%);
+    /* display: none; */
+  }
+  
+  
+  

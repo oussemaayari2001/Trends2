@@ -1,0 +1,42 @@
+/* .c1{
+  position: absolute;
+  top: 7.7px;
+
+  left: 1400px;
+  color: white;
+}
+.c2{
+    position: absolute;
+    top: 7.7px;
+
+    left: 1300px;
+    color: white;
+  } */
+  app-background{
+    position: relative;
+    z-index: -10000;
+  }
+  #btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 600%);
+    /* width: 50%; */
+  
+   
+  
+  }
+  h1{
+   color: rgb(251, 251, 255);
+  }
+  #d1{
+    position: absolute;
+    font-family:"Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-95%, -70%);
+    width: 50%;
+   color: rgb(255, 255, 255);
+    
+  }

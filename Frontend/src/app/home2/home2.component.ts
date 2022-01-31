@@ -33,7 +33,7 @@ export class Home2Component implements OnInit {
   
   ngOnInit(): void {
     this.f=this.fb.group({
-      username:['',[Validators.required,Validators.minLength(3)]],
+      username:['',],
       email:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]]
     })
     

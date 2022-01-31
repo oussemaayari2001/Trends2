@@ -19,6 +19,14 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthentificationService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
+
+for (let i =0;i < document.getElementsByTagName("input").length; i++){
+ if( document.getElementsByTagName("input")[i].onclick){
+  document.getElementsByTagName("input")[i].style.background="red"
+ }
+}
+
+
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;

@@ -7,12 +7,16 @@
 }
 #i1{
     position: absolute;
-    transform: translate(-200%,380%);
+    transform: translate(200%,380%);
     z-index: +200;
+  }
+  label{
+    position: relative;
+    left: 50px;
   }
 #i2{
     position: absolute;
-    transform: translate(10%,400%);
+    transform: translate(400%,400%);
     z-index: +200;
   }
   form .txt_field{
@@ -24,10 +28,10 @@
       color: rgb(255, 255, 255);
   }
 input{
-    width: 90%;
+    width: 70%;
     /* padding: 0 5px; */
     position: relative;
-    left: 60px;
+    left: 125px;
     height: 40px;
     font-size: 16px;
     border: none;

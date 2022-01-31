@@ -1,47 +1,67 @@
 
-<div id="app">
-    <nav class="navbar navbar-expand-lg " >
-      <a href="#" class="nav-link " routerLink="/Garde/"><img src="../assets/logotrend.png" alt="" ></a> 
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="position: absolute;left: 200px;top: 0.1px;">
+
+    <nav class="navbar navbar-expand">
+      <a  href="#"   routerLink="/Garde/"><img src="../assets/logotrend.png"  ></a> 
+      <ul class="navbar-nav ml-auto"  routerLinkActive="active" style="list-style-type: none; margin-left: 200px;" >
      
      
         
       
-        <li class="navbar-brand mb-0 h1">
-          <a href="#" class="nav-link " routerLink="/Garde/">Acceuil </a> 
-             
-             </li>
 
-             <li class="navbar-brand mb-0 h6 c6">
-              <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="user">User</a>
+             <li class="nav-item" >
+              <a href="/user" class="nav-link" style="font-size: 20px;color: white;" *ngIf="isLoggedIn" routerLink="user">User</a>
             </li>
-        <li class="navbar-brand mb-0 h6 c6" *ngIf="showAdminBoard">
-          <a href="/admin" class="nav-link" routerLink="admin">Admin </a>
+        <li class="nav-item c6" *ngIf="showAdminBoard">
+          <a href="/admin" class="nav-link" style="font-size: 20px;color: white;" routerLink="admin">Admin </a>
         </li>
-        <li class="navbar-brand mb-0 h6 c6" *ngIf="showModeratorBoard">
-          <a href="/mod" class="nav-link" routerLink="mod">Moderator Board</a>
+        <li class="nav-item c6" *ngIf="showModeratorBoard">
+          <a href="/mod" class="nav-link" style="font-size: 20px;color: white" routerLink="mod">Moderator Board</a>
         </li>
-        
-       
       </ul>
   
     
   
-      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn" style="list-style-type: none;">
         <li class="nav-item">
-          <a href="/profile" class=" nav-link c2" routerLink="/profile/">{{ username }}</a>
+          <a href="/profile" class=" nav-link c2 "style="color: white;" routerLink="/profile/">{{ username }}</a>
         </li>
         <li >
           <a href href="/login" class="nav-link c1" style="color: white;" (click)="logout()">Déconnexion</a>
         </li>
+        
       </ul>
     <a href="/login" class="nav-link c1" routerLink="/login/" *ngIf="!isLoggedIn" >S'identifier</a>
 
     </nav>
-    <div class="container">
+    
   
-      
+  
 
-     
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

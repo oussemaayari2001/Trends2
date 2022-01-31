@@ -26,6 +26,9 @@
    
   
   }
+  app-header{
+    position: absolute;
+  }
   h1{
    color: rgb(251, 251, 255);
   }

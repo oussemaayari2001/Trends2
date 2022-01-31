@@ -23,7 +23,7 @@
 
  <form  [formGroup]="f" action="" (ngSubmit)="onsubmit()"  >
   
-  <label for="username" style="font-style: italic;color: rgb(255, 255, 255);">Username</label>
+  <label for="username" class="label" style="font-style: italic;color: rgb(255, 255, 255);">Username</label>
 
    <i class="fas fa-user" style="color: white;" id="i1"></i>
   
@@ -52,7 +52,7 @@
               Signup failed! <br />{{ errorMessage }}
             </div>
 <br>
-            <button value="Commencer "   class="btn btn-info" [disabled]="f.invalid" >
+            <button value="Commencer "   class="btn btn-danger" [disabled]="f.invalid" >
               Commencer
                   </button>
    

@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
-      this.username = user.username;
+      // this.username = user.username;
     }
   }
 

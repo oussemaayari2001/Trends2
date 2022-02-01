@@ -56,12 +56,13 @@ f:FormGroup
       this.z.style.display='block';
 
     }
-
   }
 
   onSubmit(): void {
-    this.authService.login(this.form).subscribe(
+    this.authService.login(this.f.value).subscribe(
       data => {
+        console.log(data);
+        
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;

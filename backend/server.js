@@ -32,8 +32,8 @@ app.get("/", (req, res) => {
     res.json({ message: "Welcome to Trends application." });
   });
  
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended:false }));
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 db.sequelize.sync();

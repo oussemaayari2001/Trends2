@@ -1,0 +1,10 @@
+#div1{
+    position: relative;
+    transform: translate(20%,57%);
+}
+span{
+    padding-left: 10px;
+}
+li{
+    padding-top: 5px;
+}

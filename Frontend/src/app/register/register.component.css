@@ -31,10 +31,14 @@ input.ng-invalid { border-left: 2px solid red; }
 button{
     position: relative;
     left: 300px;
+    bottom: 50px;
 }
 #i1{
     position: absolute;
     transform: translate(10%,90%);
+  }
+  .form-group{
+   transform: translateY(-70%);
   }
  .eye{
   position: absolute;

@@ -32,6 +32,7 @@ const routes: Routes = [
 {path:'signup/password',component:SignuppasswordComponent},//Page pour reclamer le mot de passe 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {path:'planform',component:PlanformComponent},
   { path: 'profile', component: ProfileComponent },
   { path: 'user', component: BoardUserComponent },
   { path: 'mod', component: BoardModeratorComponent },

@@ -219,7 +219,11 @@ label{
 }
 p{
   color: #737373;
-
+}
+.logged{
+  position: relative;
+  transform: translate(65%,-900%);
+  width: 300px;
 }
 .content{
   position: absolute;

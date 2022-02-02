@@ -1,6 +1,9 @@
 <app-background>
 </app-background>
     <div class="content">
+      <div class="alert alert-success logged " *ngIf="isLoggedIn">
+        Logged in as {{ roles }} .
+      </div>
       <!-- <img
         id="profile-img"
         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
@@ -82,8 +85,6 @@
         </div>
       </form>
   
-      <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
-      </div>
+     
     </div>
   

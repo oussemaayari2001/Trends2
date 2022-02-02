@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthentificationService } from '../Services/authentification.service';
 import { TokenStorageService } from '../Services/token-storage.service';
 
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthentificationService,private token:TokenStorageService,private fb:FormBuilder) { }
+  constructor(private authService: AuthentificationService,private Router:Router,private token:TokenStorageService,private fb:FormBuilder) { }
   username:string
   email:string
   f:FormGroup=new FormGroup({
@@ -86,20 +87,21 @@ get password(){
   return this.f.controls.password
 }
   onSubmit(): void {
-  
-    this.authService.register(this.f.value).subscribe(
-      data => {
-        console.log(data);
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-        console.log(this.isSuccessful);
+  sessionStorage.setItem('password',this.f.controls.password.value);
+  this.Router.navigate(['/planform/']);
+    // this.authService.register(this.f.value).subscribe(
+    //   data => {
+    //     console.log(data);
+    //     this.isSuccessful = true;
+    //     this.isSignUpFailed = false;
+    //     console.log(this.isSuccessful);
         
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error.message;
+    //     this.isSignUpFailed = true;
+    //   }
+    // );
   }
 
 

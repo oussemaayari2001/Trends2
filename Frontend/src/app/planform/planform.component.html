@@ -15,22 +15,36 @@
 </li>
 </ul>
 <div id="div2">
-<form action="">
-<input type="text" placeholder="Prénom"><br>
-<input type="text" placeholder="Nom"><br>
-<input type="text" placeholder="Numéro de carte"><br>
-<input type="text" placeholder="Date d'expiration (MM/AA)"> <br>
-<input type="text" placeholder="Cryptogramme (CVV)"> <br><i class="fa fa-question-circle" aria-hidden="true"></i>
+    <div class="alert alert-success" *ngIf="isSuccessful" >
+     <i class="fas fa-check"></i> Your registration is successful!
+      </div>
+<form 
+        
+(ngSubmit)="onSubmit()"
+[formGroup]="f"
+novalidate>
+<input type="text" placeholder="Prénom" formControlName="prenom"><br>
+<input type="text" placeholder="Nom" formControlName="nom" ><br>
+<input type="text" placeholder="Numéro de carte" formControlName="numCarte"><br>
+<input type="date" placeholder="Date d'expiration (MM/AA)" id="date1" formControlName="dateExp" > <br>
+<div class="alert alert-warning" *ngIf="!ValidationDate() && date.touched" style="width: 390px;">
+    votre date d'expiration est incorrecte <br/>
+    if faut avoir un mois au mois de différence
+  </div>  
+<input type="text" placeholder="Cryptogramme (CVV)" formControlName="cryptogramme" required> <br><i class="fa fa-question-circle" aria-hidden="true"></i>
 <div class="lead" id="div3" style="font-size: small;">
     En cochant la case ci-dessous, vous acceptez nos Conditions d'utilisation, notre Déclaration de confidentialité,
      et vous reconnaissez avoir plus de 18 ans. Netflix renouvelle automatiquement votre abonnement et prélève les frais 
      correspondants (actuellement 11,99 $US/mois) via le mode de paiement choisi, sauf résiliation de votre part. 
-
+ 
 </div>
-<div id="s1"> <input type="checkbox" name="" id="">  J'accepte.</div>
-<input type="submit" class="btn text-light"  value="Activer mon abonnement">
-
+<input type="submit" class="btn text-light"  value="Activer mon abonnement" [disabled]="f.invalid || !ValidationDate() ">
+ <div class="alert alert-warning" *ngIf="isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>  
 </form>
+<!-- <div id="s1"> <input type="checkbox" name="" id="">  J'accepte.</div> -->
+
 </div>
 </div>
 </div>

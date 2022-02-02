@@ -21,7 +21,7 @@ mot:string
     // setInterval(this.changer,500)
    
     // console.log(this.mot);
-    this.changer();
+   
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
@@ -35,19 +35,7 @@ mot:string
     }
   }
   i:number=0
-  changer(){
-    
-    setInterval(()=>{
-      
-    
-      document.getElementById('mot').innerHTML=this.tab[this.i]
-   this.i++
-   if (this.i>=3) {
-this.i=0
-   }
-    },
-    1000)
-    }
+  
 
   logout(): void {
     this.tokenStorageService.signOut();

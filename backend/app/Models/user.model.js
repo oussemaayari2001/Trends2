@@ -3,6 +3,21 @@ module.exports = (sequelize, Sequelize) => {
       // username: {
       //   type: Sequelize.STRING
       // },
+      prenom:{
+        type:Sequelize.STRING
+      },
+      nom:{
+        type:Sequelize.STRING
+      },
+      numCarte:{
+        type:Sequelize.INTEGER
+      },
+      dateExp:{
+        type:Sequelize.DATEONLY 
+      },
+      cryptogramme:{
+        type:Sequelize.INTEGER
+      },
       email: {
         type: Sequelize.STRING
       },

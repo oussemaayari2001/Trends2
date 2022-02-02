@@ -11,10 +11,11 @@
     z-index: +200;
   }
   label{
-    font-style: italic;
+    font-style: arial;
     position: relative;
-    left: 110px;
-    top: 10px;
+    left: 130px;
+    top: 16px;
+    font-size: 17px;
   }
 #i2{
     position: absolute;

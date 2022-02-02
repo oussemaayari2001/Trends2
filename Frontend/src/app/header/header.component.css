@@ -23,11 +23,11 @@
   }
  
   .c2{
-      position: absolute;
-      top: 7.4px;
-      border-radius: 4px;
-  font-size: 20px;
-      left: 1280px;
+      position: relative;
+      top: 5px;
+      /* border-radius: 4px; */
+  font-size: 19px;
+      left: 940px;
       color: rgb(0, 0, 0);
   
     }

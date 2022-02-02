@@ -12,8 +12,9 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;
-  username: string;
-
+  nom: string;
+  prenom:string
+username:string
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
@@ -26,7 +27,9 @@ export class HeaderComponent implements OnInit {
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
-      // this.username = user.username;
+      this.nom = user.nom;
+      this.prenom=user.prenom
+      this.username=this.nom+" "+this.prenom
     }
   }
 

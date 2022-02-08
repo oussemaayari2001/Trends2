@@ -15,6 +15,7 @@ export class Home2Component implements OnInit {
   isSuccessful=false;
   isSignUpFailed=false;
   errorMessage: string;
+  isLoggedIn: boolean;
 
   constructor(private router:Router,private fb:FormBuilder,private auth:AuthentificationService,private tokenStorage:TokenStorageService) { }
   f:FormGroup
@@ -32,14 +33,18 @@ export class Home2Component implements OnInit {
     this.f=this.fb.group({
       email:['',[Validators.required,Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$")]]
     })
+    this.isLoggedIn = !!this.tokenStorage.getToken();
     
   }
+  submit:boolean
   go(){
     if(this.isSuccessful)this.router.navigate(['/register/'])
 
   }
+  error:string
   onsubmit(): void {
-   
+    this.submit=true
+   if(!this.isLoggedIn){
       this.auth.ajout(this.f.value).subscribe(data=>  {  console.log(data);
       this.isSuccessful = true;
       this.isSignUpFailed = false;
@@ -53,9 +58,10 @@ export class Home2Component implements OnInit {
       
 
     }
+  
    
   );
- 
+  
  
   sessionStorage.setItem('email',this.f.controls.email.value)
 setTimeout(() => {
@@ -64,5 +70,7 @@ setTimeout(() => {
 }, 1000);
 
   }
-
+  
+  }
+  
 }

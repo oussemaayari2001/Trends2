@@ -21,18 +21,22 @@
       <!-- <i class="far fa-envelope" style="color: rgb(0, 0, 0);" id="i2"></i> -->
      <!-- <span style="color: white;position: relative;left: 120px;">E-mail</span>  <br> -->
       <input type="email"  class=" txt_field" maxlength="50"   placeholder="Adresse e-mail" formControlName="email" required>
-       <button value="Commencer  "   style="background-color: red;color: white;font-weight: bold; font-size: 20px;" [disabled]="f.invalid" >
+       <button value="Commencer  "    style="background-color: red;color: white;font-weight: bold; font-size: 20px;" [disabled]="f.invalid" >
         Commencer
             </button>
+            <div class="alert alert-warning" *ngIf="isLoggedIn && submit">
+              You must be deconnected first
+
+            </div>
     
 
       <!-- <div class="alert alert-danger" *ngIf="mail?.errors?.required && mail.touched">
         Entrer votre mail s'il vous plais
         </div> -->
-        <div class="alert alert-danger" *ngIf="mail?.errors?.pattern && mail.touched">
+        <div class="alert alert-danger" style="margin-top: 30px;" *ngIf="mail?.errors?.pattern && mail.touched">
             le e-mail doit avoir @
             </div> 
-            <div class="alert alert-warning" *ngIf="isSignUpFailed">
+            <div class="alert alert-warning"  style="margin-top: 30px;" *ngIf="isSignUpFailed">
               Signup failed! <br />{{ errorMessage }}
             </div>
 <br>

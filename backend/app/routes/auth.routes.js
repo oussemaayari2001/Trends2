@@ -21,7 +21,8 @@ module.exports = function(app) {
   );
   app.post("/api/auth/signin", controller.signin);
   app.put("/api/auth/:id",controller.updateUser)
- 
+ app.delete("/api/auth/:id",controller.deleteUser)
+ app.delete("/api/auth/delete/:id",controller.deleteTser)
   app.post(
     "/api/auth/sign"
     ,

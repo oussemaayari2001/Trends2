@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
 import { AuthentificationService } from '../Services/authentification.service';
 import { TokenStorageService } from '../Services/token-storage.service';
 
@@ -46,11 +46,19 @@ export class ModifEmpComponent implements OnInit {
 
     }
   }
-  constructor(private fb:FormBuilder,private auth :AuthentificationService,private activatedRoute:ActivatedRoute,private token: TokenStorageService) { }
+  constructor(private router:Router,private fb:FormBuilder,private auth :AuthentificationService,private activatedRoute:ActivatedRoute,private token: TokenStorageService) { }
 id:number
+
   ngOnInit() {
+    
+    
     this.currentUser = this.token.getUser();
     this.id=this.activatedRoute.snapshot.params['id'];
+    
+    
+   
+    
+    
     this.f=this.fb.group({
       prenom:[this.currentUser.prenom,Validators.required],
       nom:[this.currentUser.nom,Validators.required],
@@ -65,7 +73,26 @@ id:number
     return this.f.controls.password
 
   }
+  logout(): void {
+    this.token.signOut();
+    window.location.reload()
+    
+  }
+
+
+
+
+
+  go(){
+    setTimeout(() => {
+    this.logout();
+    }, 1001);
+    
+setTimeout(() => {
+  this.router.navigate(['/Garde/'])
   
+}, 1000);
+  }
   chaine:any
   Today=new Date()
   ValidationDate():boolean{
@@ -99,8 +126,14 @@ err => {
 }
     
   }
-  reloadPage(): void {
-    window.location.reload();
-  }
+ 
+  
+  islogout:boolean
+  onSupprimer(id){
+    
+    this.auth.deleteClient(id).subscribe();
+    this.auth.deleteTclient(id).subscribe(()=>{this.islogout=true});
+    
+    }
 
 }

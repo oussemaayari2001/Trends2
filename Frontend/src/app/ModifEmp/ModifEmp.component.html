@@ -64,6 +64,9 @@ novalidate
      <div class="alert alert-warning" *ngIf="isSignUpFailed">
       Updated failed!<br />{{ errorMessage }}
     </div> 
+    <div class="alert alert-success" *ngIf="islogout">
+      <i class="fas fa-check"></i>   Your account has been removed
+    </div> 
     <div class="alert alert-warning" *ngIf="password.touched && password.invalid">
       all fielders are required
     </div> 
@@ -116,14 +119,19 @@ novalidate
       <div class="groupe">
   
         <label for="Cryptogramme">Cryptogramme</label>
-        <input type="text" placeholder="Cryptogramme (CVV)" id="Cryptogramme" formControlName="cryptogramme" required>
+        <input type="text" placeholder="Cryptogramme (CVV)" id="Cryptogramme" formControlName="cryptogramme" required><br>
+
       </div>
     </div>
   </div>
 
 
   <div class="pied-formulaire" align="center">
-    <input type="submit" class="btn btn-danger" [disabled]="f.invalid || !ValidationDate()" value="Modifier">
+    <input type="submit" class="btn btn-warning" id="btn" [disabled]="f.invalid || !ValidationDate()" value="Modifier vos  données">
+    <br> <br>
+    <input type="button" class="btn btn-danger" (click)="onSupprimer(currentUser.id) ; go()" value="Annueler votre abonnement ">
+
+    
   </div>
 </form>
 </div>

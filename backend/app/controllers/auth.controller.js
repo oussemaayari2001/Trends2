@@ -108,6 +108,27 @@ exports.updateUser=(req,res,next) =>{
   .catch(error => res.status(400).json(error))
 }
 
+exports.deleteUser=(req,res,next) =>{
+  User.destroy(
+    { 
+      where:{id:req.params.id}
+
+    },
+  )
+  .then(()=>res.status(200).json({message:"L'objet a été supprimer"}))
+  .catch(error => res.status(400).json(error))
+}
+
+exports.deleteTser=(req,res,next) =>{
+  Temp.destroy(
+    { 
+      where:{id:req.params.id}
+
+    },
+  )
+  .then(()=>res.status(200).json({message:"L'objet a été supprimer"}))
+  .catch(error => res.status(400).json(error))
+}
 
 
 

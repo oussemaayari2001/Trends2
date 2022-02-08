@@ -10,6 +10,7 @@ import { GardeComponent } from './garde/garde.component';
 import { AcceuilComponent } from './home/acceuil/acceuil.component';
 import { Home2Component } from './home2/home2.component';
 import { LoginComponent } from './login/login.component';
+import { ModifEmpComponent } from './ModifEmp/ModifEmp.component';
 
 import { PlanformComponent } from './planform/planform.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:'Garde',component:GardeComponent},
 {path:'signup/password',component:SignuppasswordComponent},//Page pour reclamer le mot de passe 
   { path: 'login', component: LoginComponent },
+  {path:'update/:id',component:ModifEmpComponent},
   { path: 'register', component: RegisterComponent },
   {path:'planform',component:PlanformComponent},
   { path: 'profile', component: ProfileComponent },

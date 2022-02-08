@@ -24,10 +24,11 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { BackgroundComponent } from './background/background.component';
 import { GardeComponent } from './garde/garde.component';
 import { FooterComponent } from './footer/footer.component';
+import { ModifEmpComponent } from './ModifEmp/ModifEmp.component';
 
 
 @NgModule({
-  declarations: [				
+  declarations: [					
     AppComponent,
     LoginComponent,
     AcceuilComponent,
@@ -47,7 +48,8 @@ import { FooterComponent } from './footer/footer.component';
       HeaderComponent,
       BackgroundComponent,
       GardeComponent,
-      FooterComponent
+      FooterComponent,
+      ModifEmpComponent
    ],
   imports: [
     BrowserModule,

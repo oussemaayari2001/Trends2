@@ -1,5 +1,6 @@
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/auth.controller");
+const db = require("../Models");
 
 module.exports = function(app) {
   app.use(function(req, res, next) {
@@ -19,7 +20,7 @@ module.exports = function(app) {
     controller.signup,
   );
   app.post("/api/auth/signin", controller.signin);
-  
+  app.put("/api/auth/:id",controller.updateUser)
  
   app.post(
     "/api/auth/sign"
@@ -31,5 +32,6 @@ module.exports = function(app) {
    
     controller.sign
   );
+
   
 };

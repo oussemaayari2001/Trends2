@@ -7,6 +7,7 @@ const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+const { user } = require("../models");
 exports.sign=(req, res) =>{
   //Top
   Temp.create({
@@ -91,6 +92,36 @@ exports.signup = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+exports.updateUser=(req,res,next) =>{
+  User.update(
+    { prenom:req.body.prenom,
+      nom:req.body.nom,
+      numCarte:req.body.numCarte,
+      dateExp:req.body.dateExp,
+      cryptogramme:req.body.cryptogramme,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 8)
+    },
+      {where:{id:req.params.id}}
+  )
+  .then(()=>res.status(200).json({message:"L'objet a eété modifié"}))
+  .catch(error => res.status(400).json(error))
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 exports.signin = (req, res) => {
   User.findOne({
@@ -131,7 +162,11 @@ exports.signin = (req, res) => {
           // username: user.username,
           prenom:user.prenom,
           nom:user.nom,
+          numCarte:user.numCarte,
+          dateExp:user.dateExp,
+          cryptogramme:user.cryptogramme,
           email: user.email,
+          password:user.password,
           roles: authorities,
           accessToken: token
         });

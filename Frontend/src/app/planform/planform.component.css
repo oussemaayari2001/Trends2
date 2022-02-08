@@ -37,14 +37,22 @@ input[type=text], input[type=date]{
 }
 
 #s1{
-    transform: translateY(100%);
+    transform: translateY(-120%);
+    font-size: x-large;
+}
+input[type=checkbox]{
+border-color: red;
+font-size: x-large;
+
 }
 input[type=submit]{
     background-color:rgb(211,8,18);
     transform: translateY(120%);
     text-transform:capitalize;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+
     font-size: 16px;
-    font-weight: bold;
+    font-weight:bold;
     text-align: center;
     height: 50px;
     width: 390px;

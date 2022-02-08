@@ -102,38 +102,18 @@
   <!-- <app-background>
   </app-background> -->
 
-
-
-
-<div id="id1">
-<div class="py-5 text-center container" >
-  <div class="row py-lg-5" >
-    <div class="col-lg-6 col-md-6 mx-auto">
-      <h3 style="font-style: italic;color: rgb(0, 0, 0);">Ravis de vous revoir !
-          Inscrivez-vous, cela ne prendra que quelques minutes.
-      </h3>
-      <p class="lead " style="font-style: italic;color: rgb(0, 0, 0);">Entrez votre mot de passe pour joindre notre application.</p>
+  <div  class="py-5  container" id="div1">
+    <div class="row py-lg-5">
+    <div class="row py-lg-5">
+<h3 style="position:relative; top: 20px;">Ravis de vous revoir !
+  Inscrivez-vous, cela ne prendra que quelques minutes.</h3> <br>
+      <p style="color: rgb(0, 0, 0);position:relative; top: 20px;">Entrez votre mot de passe pour joindre notre application.</p>
     </div>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="col-md-12">
   
-    <div >
+
+
     
-      <form
-        *ngIf="!isSuccessful"
+      <form  *ngIf="!isSuccessful"
         
         (ngSubmit)="onSubmit()"
         [formGroup]="f"
@@ -141,9 +121,10 @@
       >
   
         <div class="form-group">
-          <label for="password" style="font-style: italic;color: rgb(0, 0, 0);">Email</label><br>
+          <label for="password" style="color: rgb(0, 0, 0);">Email</label><br>
          <span style="font-weight: bold; color: rgb(0, 0, 0);">{{email}}</span>  <br>
-          <label for="password" style="font-style: italic;color: rgb(0, 0, 0);">Password</label>
+         <div class="password">
+         <label for="password" style="color: rgb(0, 0, 0);">Password</label>
           <input
             type="password"
             class="form-control"
@@ -154,15 +135,17 @@
             <i id="hide1" class="fa fa-eye"  ></i>
             <i id="hide2" class="fa fa-eye-slash "></i>
           </span>
-          <div class="alert-danger" *ngIf=" password.invalid && password?.errors.required && password.touched">
+          <div class="alert-danger c9" *ngIf=" password.invalid && password?.errors.required && password.touched">
         Password is required</div>
-            <div *ngIf="password?.errors?.minlength && password.touched" class="alert-warning">
+            <div *ngIf="password?.errors?.minlength && password.touched" class="alert-warning c9">
               Password must be at least 6 characters
             </div>
           </div>
-       <br>
-        <div class="form-group">
-          <button class="btn btn-danger" >Sign Up</button>
+        </div>
+       
+       
+        <div style="margin-top: 10px;" >
+          <input type="submit"  value="Suivant" [disabled]="f.invalid">
         </div>
   
          <!-- <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
@@ -174,5 +157,5 @@
         Your registration is successful!
       </div>
     </div>
-  </div>
+
 </div>

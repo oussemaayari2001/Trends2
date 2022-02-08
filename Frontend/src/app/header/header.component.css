@@ -12,9 +12,18 @@
   
     left: 1400px;
     color: rgb(255, 255, 255) ;
-    border-radius: 4px;
+    border-radius: 2px;
     background-color: red;
     /* background-color: red; */
+  }
+  .active{
+    background-color: rgb(195, 193, 197);
+    /* width: 200px; */
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    /* margin-left: 10px;
+    margin-right: 20px; */
   }
   img{
     height: 50px;
@@ -23,11 +32,24 @@
   }
  
   .c2{
-      position: relative;
+      position: absolute;
       top: 5px;
       /* border-radius: 4px; */
   font-size: 19px;
-      left: 940px;
+  width: 70%;
+  /* display: flex;
+  flex-wrap: nowrap; */
+  
+      left: 1210px;
+      color: rgb(0, 0, 0);
+  
+    }
+    .c3{
+      position: absolute;
+      top: 5px;
+      /* border-radius: 4px; */
+  font-size: 19px;
+      left: 1110px;
       color: rgb(0, 0, 0);
   
     }

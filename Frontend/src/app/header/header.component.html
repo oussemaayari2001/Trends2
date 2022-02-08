@@ -8,23 +8,39 @@
         
       
 
-             <li class="nav-item" >
-              <a href="/user" class="nav-link" style="font-size: 20px;color: white;" *ngIf="isLoggedIn" routerLink="user">User</a>
-            </li>
+             <!-- <li class="nav-item" >
+              <a href="/user" class="nav-link"
+               style="font-size: 20px;font-weight: bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+                'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" *ngIf="isLoggedIn" routerLink="user" 
+                routerLinkActive="active">User</a>
+            </li> -->
         <li class="nav-item c6" *ngIf="showAdminBoard">
-          <a href="/admin" class="nav-link" style="font-size: 20px;color: white;" routerLink="admin">Admin </a>
+          <a href="/admin" class="nav-link" style="font-size: 20px;font-weight: bold;font-family:'Trebuchet MS',
+           'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" routerLink="admin" routerLinkActive="active">Admin </a>
         </li>
         <li class="nav-item c6" *ngIf="showModeratorBoard">
-          <a href="/mod" class="nav-link" style="font-size: 20px;color: white" routerLink="mod">Moderator Board</a>
+          <a href="/mod" class="nav-link" style="font-size: 20px;font-weight: bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" routerLink="/mod/" routerLinkActive="active">Moderator Board</a>
         </li>
+        
       </ul>
   
     
   
       <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn" style="list-style-type: none;">
+       
         <li class="nav-item">
-          <a href="/profile" class=" nav-link c2 "style="color: white;" routerLink="/profile/">{{ username }}</a>
+          <a href="/profile" routerLinkActive="active" class=" nav-link c3 "style="font-size: 20px;font-weight: bold;
+          font-family:'Trebuchet MS',
+           'Lucida Sans Unicode',
+            'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" [routerLink]="['/update/',id]">Infos</a>
         </li>
+       
+        <li class="nav-item">
+          <a href="/profile" routerLinkActive="active" class=" nav-link c2"style="font-size: 20px;
+          font-weight: bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+           'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" routerLink="/profile/">{{ username }}</a>
+        </li>
+        
         <li >
           <a href href="/login" class="nav-link c1" style="color: white;" (click)="logout()">Déconnexion</a>
         </li>

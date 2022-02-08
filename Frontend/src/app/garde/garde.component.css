@@ -14,6 +14,9 @@
     position: absolute;
     transform: translate(5%,-250%);
   }
+  .div1{
+    color: white;
+  }
   h1{
    color: rgb(251, 251, 255);
   }

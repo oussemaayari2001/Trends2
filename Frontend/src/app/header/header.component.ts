@@ -16,19 +16,20 @@ export class HeaderComponent implements OnInit {
   prenom:string
 username:string
   constructor(private tokenStorageService: TokenStorageService) { }
-
+id:number
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
+      this.id=this.tokenStorageService.getUser().id
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 
       this.nom = user.nom;
-      this.prenom=user.prenom
+      this.prenom=user.prenom;
       this.username=this.nom+" "+this.prenom
     }
   }

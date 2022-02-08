@@ -20,6 +20,9 @@ export class AuthentificationService {
    
     return this.http.post(AUTH_API + 'signup', user, httpOptions);
   }
+  updateClient(id:number,user):Observable<any>{
+    return this.http.put(AUTH_API+""+id, user,httpOptions);
+    }
   ajout(user):Observable<Tuser>{
     
     return this.http.post<Tuser>(AUTH_API + 'sign', {

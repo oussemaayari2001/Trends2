@@ -1,0 +1,237 @@
+/* #div1{
+    width: 390px;
+
+    flex-wrap: wrap;
+     position: relative;
+    transform: translate(-10%,-10%); 
+}
+span{
+    padding-left: 10px;
+}
+li{
+    margin-top: 15px;
+    margin-left: 5px;
+}
+img{
+    height: 30px;
+    width: 35px;
+}
+#div2{
+    flex-wrap: nowrap;
+    width: 390px;
+    transform: translateY(10%); 
+}
+input[type=text], input[type=date], input[type=password], input[type=email]{
+    margin-top: 10px;
+    height: 50px;
+    width: 390px;
+}
+#div3{
+    
+    transform: translateY(10%); 
+}
+.fa-question-circle{
+    position: absolute;
+    transform: translate(2300%,-180%);
+
+}
+
+#s1{
+    transform: translateY(100%);
+}
+input[type=submit]{
+    background-color:rgb(211,8,18);
+    transform: translateY(120%);
+    text-transform:capitalize;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    height: 50px;
+    width: 390px;
+  }
+  span{
+      
+      color: brown;
+  }
+  .eye{
+    
+    position: absolute;
+    transform: translate(1400%,-140%);
+  
+  }
+  #hide1{
+    display: none;
+
+    position: relative;
+      transform: translate(-340%,-10%);
+    
+  }
+    #hide2{
+      position: relative;
+      transform: translate(-340%,-10%);
+    
+    }
+    
+     */
+     body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #fef1df;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+      }
+      #div1{
+          
+        margin: 0px;
+        padding: 11px;
+        background-color: #fef1df;
+        position: absolute;
+        top: 51%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        height: 80vh;
+    }
+      
+      form {
+        padding: 30px;
+        background-color: white;
+        border-radius: 10px;
+      }
+      form h1 {
+        font-size: 20px;
+      }
+      form .separation {
+        width: 100%;
+        height: 1px;
+        background-color: #ff0000;
+      }
+      form .corps-formulaire {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 30px;
+      }
+      form .corps-formulaire .groupe {
+        position: relative; /* Pour mettre positionner l’élément dans le flux normal de la page */
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      form .corps-formulaire .gauche {
+         /* Pour mettre positionner l’élément dans le flux normal de la page */
+        margin-left: 70px;
+        /* display: flex;
+        flex-direction: column; */
+      }
+
+
+
+
+      form .corps-formulaire .gauche .groupe input {
+        margin-top: 5px;
+        padding: 10px 5px 10px 30px;
+        border: 1px solid #c9c9c9;
+        outline-color: #747cdf;
+        border-radius: 5px;
+      }
+      form .corps-formulaire .gauche .groupe i {
+        position: absolute; /* positionné par rapport à son parent le plus proche positionné */
+        left: 0;
+        top: 25px;
+        padding: 9px 8px;
+        color: #5e5757;
+      }
+      form .corps-formulaire .droite {
+        margin-left: 600px;
+      }
+
+      form .corps-formulaire .droite .groupe input {
+        margin-top: 5px;
+        padding: 10px 5px 10px 30px;
+        border: 1px solid #c9c9c9;
+        outline-color: #747cdf;
+        border-radius: 5px;
+      }
+      form .corps-formulaire .droite .groupe {
+        margin-top: 5px;
+        padding: 10px;
+        /* background-color: #f1f1f1; */
+        /* border: 2px solid #747cdf; */
+        /* outline: none; */
+        border-radius: 5px;
+        resize: none;
+        /* height: 72%; */
+      }
+      button{
+          background-color: red;
+      }
+      .eye{
+        position: relative;
+        bottom: 60px;
+        transform: translate(85%,-90%);
+      
+      }
+      #hide1{
+        display: none;
+        /* position:relative; */
+        /* transform: translate(1730%,-250%); */
+      }
+      /* #hide2{
+        /* display: none;
+        position: relative;
+        /* transform: translate(1550%,-250%); 
+      } */
+      /* form .pied-formulaire input {
+        margin-top: 10px;
+        background-color: red;
+        color: white;
+        font-size: 17px;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+        transition: transform 0.5s;
+      } */
+      form .pied-formulaire input[type=submit]::hover {
+        transform: scale(1.5);
+      }
+      
+      @media screen and (max-width: 920px) {
+        form .corps-formulaire .droite {
+          margin-left: 0px;
+        }
+      }
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

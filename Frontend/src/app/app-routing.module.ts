@@ -40,10 +40,10 @@ const routes: Routes = [
   { path: 'mod', component: BoardModeratorComponent },
   { path: 'admin', component: BoardAdminComponent },
   {path:'background',component:BackgroundComponent},
-  { path: '', redirectTo: 'Garde', pathMatch: 'full' }
+  { path: '', redirectTo: 'Garde', pathMatch: 'full'}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule]  
 })
 export class AppRoutingModule { }

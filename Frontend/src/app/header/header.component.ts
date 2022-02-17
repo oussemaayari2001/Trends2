@@ -17,12 +17,14 @@ export class HeaderComponent implements OnInit {
 username:string
   constructor(private tokenStorageService: TokenStorageService) { }
 id:number
+exp:boolean
   ngOnInit(): void {
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
     if (this.isLoggedIn) {
       const user = this.tokenStorageService.getUser();
       this.id=this.tokenStorageService.getUser().id
+      this.exp=this.tokenStorageService.getUser().exp
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');

@@ -47,6 +47,7 @@ export class PlanformComponent implements OnInit {
     this.f=this.fb.group({
       prenom:['',Validators.required],
       nom:['',Validators.required],
+      exp:[true],
       numCarte:[,Validators.required],
       dateExp:['',Validators.required],
       cryptogramme:[,[Validators.minLength(3),Validators.maxLength(4),Validators.required]],

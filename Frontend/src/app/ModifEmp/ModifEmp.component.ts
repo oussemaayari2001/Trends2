@@ -11,7 +11,6 @@ import { TokenStorageService } from '../Services/token-storage.service';
 })
 export class ModifEmpComponent implements OnInit {
   currentUser:any
- 
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -19,6 +18,7 @@ export class ModifEmpComponent implements OnInit {
     prenom:new FormControl(''),
     nom:new FormControl(''),
     numCarte:new FormControl(),
+    exp:new FormControl(true),
     dateExp:new FormControl(''),
     cryptogramme:new FormControl(),
     email:new FormControl(''),
@@ -32,12 +32,11 @@ export class ModifEmpComponent implements OnInit {
     
      this.x=document.getElementById("myInput");
      this.y=document.getElementById("hide1");
-
      this.z=document.getElementById("hide2");
     if (this.x.type==='password') {
       this.x.type='text';
       this.y.style.display='block';
-      this.z.style.display='none'
+      this.z.style.display='none';
     }
     else{
       this.x.type='password';
@@ -48,6 +47,7 @@ export class ModifEmpComponent implements OnInit {
   }
   constructor(private router:Router,private fb:FormBuilder,private auth :AuthentificationService,private activatedRoute:ActivatedRoute,private token: TokenStorageService) { }
 id:number
+exp:boolean
 
   ngOnInit() {
     
@@ -55,19 +55,26 @@ id:number
     this.currentUser = this.token.getUser();
     this.id=this.activatedRoute.snapshot.params['id'];
     
-    
-   
+    this.exp=this.currentUser.exp
     
     
     this.f=this.fb.group({
       prenom:[this.currentUser.prenom,Validators.required],
       nom:[this.currentUser.nom,Validators.required],
-      numCarte:[this.currentUser.numCarte,Validators.required],
-      dateExp:[this.currentUser.dateExp,Validators.required],
-      cryptogramme:[this.currentUser.cryptogramme,[Validators.minLength(3),Validators.maxLength(4),Validators.required]],
+      exp:[this.currentUser.exp],
+      numCarte:[,Validators.required],
+      dateExp:[,Validators.required],
+      cryptogramme:[,[Validators.minLength(3),Validators.maxLength(4),Validators.required]],
       email:[this.currentUser.email,Validators.required],
-      password:['',Validators.required]
+      password:[this.currentUser.password,Validators.required]
     })
+    if (this.exp) {
+      document.getElementById("a2").style.display="none"
+    }
+    else{
+      document.getElementById("a1").style.display="none"
+
+    }
   }
   get password(){
     return this.f.controls.password
@@ -78,8 +85,24 @@ id:number
     window.location.reload()
     
   }
+  go2(){
+    window.location.reload()
+  }
 
+  annueler2(){
+    this.f=this.fb.group({
+      prenom:[this.currentUser.prenom,Validators.required],
+      nom:[this.currentUser.nom,Validators.required],
+      exp:[true],
+      // numCarte:[this.currentUser.numCarte,Validators.required],
+      // dateExp:[this.currentUser.dateExp,Validators.required],
+      // cryptogramme:[this.currentUser.cryptogramme,[Validators.minLength(3),Validators.maxLength(4),Validators.required]],
+      email:[this.currentUser.email,Validators.required],
+      password:[this.currentUser.password,Validators.required]
+    })
+    this.auth.updateClient(this.id,this.f.value).subscribe()
 
+  }
 
 
 
@@ -125,6 +148,19 @@ err => {
   this.isSignUpFailed = true;
 }
     
+  }
+  annueler(){
+    this.f=this.fb.group({
+      prenom:[this.currentUser.prenom,Validators.required],
+      nom:[this.currentUser.nom,Validators.required],
+      exp:[false],
+      // numCarte:[this.currentUser.numCarte,Validators.required],
+      // dateExp:[this.currentUser.dateExp,Validators.required],
+      // cryptogramme:[this.currentUser.cryptogramme,[Validators.minLength(3),Validators.maxLength(4),Validators.required]],
+      email:[this.currentUser.email,Validators.required],
+      password:[this.currentUser.password,Validators.required]
+    })
+    this.auth.updateClient(this.id,this.f.value).subscribe()
   }
  
   

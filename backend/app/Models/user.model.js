@@ -9,15 +9,19 @@ module.exports = (sequelize, Sequelize) => {
       nom:{
         type:Sequelize.STRING
       },
-      numCarte:{
-        type:Sequelize.INTEGER
+      exp:{
+        type:Sequelize.BOOLEAN,
+        defaultValue: true
       },
-      dateExp:{
-        type:Sequelize.DATEONLY 
-      },
-      cryptogramme:{
-        type:Sequelize.INTEGER
-      },
+      // numCarte:{
+      //   type:Sequelize.INTEGER
+      // },
+      // dateExp:{
+      //   type:Sequelize.DATEONLY 
+      // },
+      // cryptogramme:{
+      //   type:Sequelize.INTEGER
+      // },
       email: {
         type: Sequelize.STRING
       },

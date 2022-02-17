@@ -8,7 +8,7 @@ const sequelize = new Sequelize(
   {
     host: config.HOST,
     dialect: config.dialect,
-    operatorsAliases: false,
+    operatorsAliases: '',
 
     pool: {
       max: config.pool.max,
@@ -25,15 +25,17 @@ db.sequelize = sequelize;
 
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
+db.compte = require("../models/compte.model.js")(sequelize, Sequelize);
+
 db.temp = require("../models/temporary.user.model.js")(sequelize, Sequelize);
-
-
 db.role.belongsToMany(db.user, {
   through: "user_roles",
   foreignKey: "roleId",
   otherKey: "userId"
 });
 
+db.user.hasMany(db.compte,{foreignKey:'id',onDelete:'CASCADE',onUpdate:'CASCADE'})
+db.compte.belongsTo(db.user)
 db.user.belongsToMany(db.role, {
   through: "user_roles",
   foreignKey: "userId",

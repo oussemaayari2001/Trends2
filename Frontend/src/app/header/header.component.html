@@ -26,7 +26,7 @@
   
     
   
-      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn" style="list-style-type: none;">
+      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn " style="list-style-type: none;">
        
         <li class="nav-item">
           <a href="/profile" routerLinkActive="active" class=" nav-link c3 "style="font-size: 20px;font-weight: bold;
@@ -35,7 +35,7 @@
             'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" [routerLink]="['/update/',id]">Infos</a>
         </li>
        
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="exp ">
           <a href="/profile" routerLinkActive="active" class=" nav-link c2"style="font-size: 20px;
           font-weight: bold;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
            'Lucida Sans', Arial, sans-serif;color: rgb(138, 132, 132);" routerLink="/profile/">{{ username }}</a>

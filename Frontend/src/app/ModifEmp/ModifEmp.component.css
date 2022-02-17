@@ -97,10 +97,11 @@ input[type=submit]{
         font-weight: bold;
         height: 80vh;
     }
-    #btn{
-      background-color: #fef1df;
+  .c2{
+      background-color: #f5c68d;
+      color:rgb(0, 0, 0);
 
-    }
+    } 
       
       form {
         padding: 30px;

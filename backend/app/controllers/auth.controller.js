@@ -1,13 +1,14 @@
 const db = require("../models");
 const config = require("../config/auth.config");
 const User = db.user;
+const Compte=db.compte
 const Role = db.role;
 const Temp =db.temp;
 const Op = db.Sequelize.Op;
 
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
-const { user } = require("../models");
+const { user, compte } = require("../models");
 exports.sign=(req, res) =>{
   //Top
   Temp.create({
@@ -18,7 +19,15 @@ exports.sign=(req, res) =>{
   })
 
   .then(user => {
-   
+    // res.status(200).send({
+    //   id: user.id,
+    //   //2
+    //   // username: user.username,
+     
+    //   email: user.email,
+    
+      
+    // });
           res.send({ message: "User was registered successfully!" });
         })
         .catch(err => {
@@ -60,53 +69,93 @@ exports.signup = (req, res) => {
   User.create({
     //1
     // username: req.body.username,//
+    
     prenom:req.body.prenom,
     nom:req.body.nom,
-    numCarte:req.body.numCarte,
-    dateExp:req.body.dateExp,
-    cryptogramme:req.body.cryptogramme,
+    exp:req.body.exp,
+    
     email: req.body.email,
     password: bcrypt.hashSync(req.body.password, 8)
   })
-    .then(user => {
-      if (req.body.roles) {
-        Role.findAll({
-          where: {
-            name: {
-              [Op.or]: req.body.roles
-            }
+  
+  .then(user => {
+    if (req.body.roles) {
+      Role.findAll({
+        where: {
+          name: {
+            [Op.or]: req.body.roles
           }
-        }).then(roles => {
-          user.setRoles(roles).then(() => {
-            res.send({ message: "User was registered successfully!" });
-          });
-        });
-      } else {
-        // user role = 1
-        user.setRoles([1]).then(() => {
+        }
+      }).then(roles => {
+        user.setRoles(roles).then(() => {
           res.send({ message: "User was registered successfully!" });
         });
-      }
+      });
+    } else {
+      // user role = 1
+      user.setRoles([1]).then(() => {
+        res.send({ message: "User was registered successfully!" });
+      });
+    }
+    Compte.create({
+      numCarte:req.body.numCarte,
+      dateExp:req.body.dateExp,
+      cryptogramme:req.body.cryptogramme,
+      userId:user.id
     })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
+  })
+
+  .catch(err => {
+    res.status(500).send({ message: err.message });
+  });
+ 
+    
 };
+// compte.create({
+//   numCarte:req.body.numCarte,
+//   dateExp:req.body.dateExp,
+//   cryptogramme:req.body.cryptogramme
+// })
+
 exports.updateUser=(req,res,next) =>{
   User.update(
     { prenom:req.body.prenom,
       nom:req.body.nom,
-      numCarte:req.body.numCarte,
-      dateExp:req.body.dateExp,
-      cryptogramme:req.body.cryptogramme,
+      exp:req.body.exp,
+     
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 8)
     },
       {where:{id:req.params.id}}
   )
-  .then(()=>res.status(200).json({message:"L'objet a eété modifié"}))
+  .then(()=>{res.status(200).json({message:"L'objet a été modifié"}); Compte.update(
+    {  numCarte:req.body.numCarte,
+      dateExp:req.body.dateExp,
+      cryptogramme:req.body.cryptogramme,
+      
+    },
+      {where:{id:req.params.id}}
+  )})
   .catch(error => res.status(400).json(error))
 }
+
+exports.updateCompte=(req,res,next) =>{
+  Compte.update(
+    {  numCarte:req.body.numCarte,
+      dateExp:req.body.dateExp,
+      cryptogramme:req.body.cryptogramme,
+      
+    },
+      {where:{id:req.params.id}}
+  )
+  .then(()=>res.status(200).json({message:"L'objet a été modifié"}))
+  .catch(error => res.status(400).json(error))
+}
+
+
+
+
+
 
 exports.deleteUser=(req,res,next) =>{
   User.destroy(
@@ -118,6 +167,29 @@ exports.deleteUser=(req,res,next) =>{
   .then(()=>res.status(200).json({message:"L'objet a été supprimer"}))
   .catch(error => res.status(400).json(error))
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 exports.deleteTser=(req,res,next) =>{
   Temp.destroy(
@@ -183,11 +255,12 @@ exports.signin = (req, res) => {
           // username: user.username,
           prenom:user.prenom,
           nom:user.nom,
-          numCarte:user.numCarte,
-          dateExp:user.dateExp,
-          cryptogramme:user.cryptogramme,
+          exp:user.exp,
+          numCarte:req.body.numCarte,
+          dateExp:req.body.dateExp,
+          cryptogramme:req.body.cryptogramme,
           email: user.email,
-          password:user.password,
+          password:req.body.password,
           roles: authorities,
           accessToken: token
         });
